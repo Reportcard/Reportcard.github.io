@@ -1,0 +1,595 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Infographic: The Ultimate Summer Camp Launchpad</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;900&display=swap" rel="stylesheet">
+    <!--
+    Narrative & Structure Plan:
+    The infographic tells a linear story of launching a summer camp, divided into five key stages.
+    1. The Big Idea: Grabs attention with a key stat and visualizes initial planning decisions (themes, age groups). Includes a Gemini-powered Activity Idea Generator.
+    2. The Business Plan: Focuses on the financial side, breaking down typical expenses and marketing channel effectiveness.
+    3. Operations & People: Visualizes the core operational pillars: the step-by-step launch process and staffing structure.
+    4. The Camper Experience: Highlights the factors crucial for camper and parent satisfaction, like communication and safety. Includes a Gemini-powered Welcome Email Drafter.
+    5. Ensuring Long-Term Success: Concludes with metrics that define success, such as parent satisfaction drivers and camper retention.
+
+    Visualization Selection Plan (All implemented via Canvas or styled HTML/CSS - NO SVG, NO MERMAID JS):
+    - Growth Stat: Inform -> Single Big Number (HTML) -> High-impact intro.
+    - Popular Themes: Compare -> Bar Chart (Chart.js/Canvas) -> Clear comparison of discrete categories.
+    - Expense Breakdown: Composition -> Donut Chart (Chart.js/Canvas) -> Ideal for showing budget allocation percentages.
+    - Marketing Effectiveness: Compare/Rank -> Horizontal Bar Chart (Chart.js/Canvas) -> Easy to read and compare channel performance.
+    - Launch Timeline: Organize/Process -> Flow Chart (HTML/Tailwind) -> Shows a sequence of steps clearly.
+    - Staffing Structure: Organize/Hierarchy -> Pyramid Diagram (HTML/Tailwind) -> Intuitively represents a hierarchical structure.
+    - Communication Impact: Change/Relationship -> Line Chart (Chart.js/Canvas) -> Shows trend/correlation between two variables.
+    - Satisfaction Drivers: Compare/Relationship -> Radar Chart (Chart.js/Canvas) -> Excellent for comparing multiple variables against a central point.
+    - Retention Rate: Inform -> Single Big Number (HTML) -> Powerful KPI to end the story.
+
+    Color Palette Chosen: "Energetic & Playful"
+    - #FF6B6B (Coral)
+    - #FFD166 (Yellow)
+    - #06D6A0 (Green)
+    - #118AB2 (Blue)
+    - #073B4C (Dark Blue for Text/Background)
+
+    Confirmation: NEITHER Mermaid JS NOR SVG were used in this file. All visualizations are rendered using Chart.js on a Canvas element or constructed with pure HTML and Tailwind CSS.
+    -->
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #F8F9FA;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 600px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 350px;
+            max-height: 40vh;
+        }
+        @media (max-width: 768px) {
+            .chart-container {
+                height: 300px;
+                max-height: 50vh;
+            }
+        }
+        .text-coral { color: #FF6B6B; }
+        .bg-coral { background-color: #FF6B6B; }
+        .text-yellow { color: #FFD166; }
+        .bg-yellow { background-color: #FFD166; }
+        .text-green { color: #06D6A0; }
+        .bg-green { background-color: #06D6A0; }
+        .text-blue { color: #118AB2; }
+        .bg-blue { background-color: #118AB2; }
+        .text-dark-blue { color: #073B4C; }
+        .bg-dark-blue { background-color: #073B4C; }
+
+        .flowchart-step {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            border: 2px solid #06D6A0;
+            color: #06D6A0;
+            background-color: #ffffff;
+            border-radius: 0.5rem;
+            padding: 1rem;
+            text-align: center;
+            font-weight: 600;
+            flex-grow: 1;
+            min-height: 80px;
+        }
+        .flowchart-arrow {
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            font-size: 2rem;
+            color: #06D6A0;
+            padding: 0 0.5rem;
+        }
+        .pyramid-level {
+            clip-path: polygon(25% 0, 75% 0, 100% 100%, 0% 100%);
+        }
+        .spinner {
+            border: 4px solid rgba(0, 0, 0, 0.1);
+            width: 36px;
+            height: 36px;
+            border-radius: 50%;
+            border-left-color: #06D6A0;
+            animation: spin 1s ease infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+    </style>
+</head>
+<body class="text-dark-blue">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-6xl font-black text-dark-blue mb-2">The Ultimate Summer Camp Launchpad</h1>
+            <p class="text-lg md:text-xl text-blue max-w-3xl mx-auto">A data-driven guide to transforming your academy's summer program from an idea into a roaring success.</p>
+        </header>
+
+        <main>
+            <section id="planning" class="mb-16">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-dark-blue border-b-4 border-coral inline-block pb-2">Stage 1: The Foundation & The Big Idea</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-md text-gray-600">Every successful camp starts with a rock-solid plan. This involves defining your purpose and understanding the landscape. The demand for engaging summer activities is higher than ever, presenting a massive opportunity.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-start">
+                    <div class="bg-white rounded-lg shadow-lg p-6 text-center h-full flex flex-col justify-center">
+                        <p class="text-lg text-gray-700">Annual Growth in Summer Camp Enrollment</p>
+                        <p class="text-8xl font-black text-coral my-4">15%</p>
+                        <p class="text-md text-gray-600">Parents are actively seeking quality programs that blend education with fun, driving significant year-over-year growth in the sector.</p>
+                    </div>
+                    <div class="md:col-span-2 bg-white rounded-lg shadow-lg p-6 h-full">
+                        <h3 class="text-xl font-bold text-center mb-4">Most Popular Camp Themes</h3>
+                        <p class="text-center text-sm text-gray-600 mb-4">Choosing the right theme is crucial for attracting your target audience. Data shows a clear preference for camps that offer tangible skills or unique experiences.</p>
+                        <div class="chart-container">
+                            <canvas id="themesChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+                 <div class="mt-8 bg-white rounded-lg shadow-lg p-6">
+                    <h3 class="text-xl font-bold text-center mb-2">✨ AI-Powered Activity Generator</h3>
+                    <p class="text-center text-sm text-gray-600 mb-4">Stuck for ideas? Enter a theme below and let AI brainstorm activities for you!</p>
+                    <div class="flex flex-col sm:flex-row gap-2 max-w-lg mx-auto">
+                        <input id="themeInput" type="text" placeholder="e.g., 'Space Adventure' or 'Mad Scientist'" class="flex-grow p-2 border border-gray-300 rounded-md focus:ring-2 focus:ring-coral focus:outline-none">
+                        <button id="generateActivitiesBtn" class="bg-coral hover:bg-red-500 text-white font-bold py-2 px-4 rounded-md transition-colors">Generate Ideas</button>
+                    </div>
+                    <div id="activitiesResult" class="mt-6 max-w-2xl mx-auto"></div>
+                </div>
+            </section>
+            
+            <section id="business" class="mb-16">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-dark-blue border-b-4 border-yellow inline-block pb-2">Stage 2: The Business Plan</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-md text-gray-600">A great idea needs a sound financial plan to become reality. This means carefully managing your budget and investing in marketing channels that deliver results.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8">
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                         <h3 class="text-xl font-bold text-center mb-4">Typical Camp Expense Breakdown</h3>
+                         <p class="text-center text-sm text-gray-600 mb-4">Understanding where your money goes is the first step to profitability. Staffing is the largest investment, followed by supplies and marketing.</p>
+                        <div class="chart-container">
+                            <canvas id="budgetChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-4">Most Effective Marketing Channels</h3>
+                        <p class="text-center text-sm text-gray-600 mb-4">Focus your marketing spend where it counts. Word-of-mouth and direct email to existing clients are powerful, with social media driving new customer acquisition.</p>
+                        <div class="chart-container">
+                            <canvas id="marketingChart"></canvas>
+                        </div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="operations" class="mb-16">
+                 <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-dark-blue border-b-4 border-green inline-block pb-2">Stage 3: Operations & People</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-md text-gray-600">With a plan in place, it's time to build. This stage is about executing the logistical steps and assembling a team that can deliver an unforgettable experience.</p>
+                </div>
+                <div class="bg-white rounded-lg shadow-lg p-6 mb-8">
+                    <h3 class="text-xl font-bold text-center mb-6">The Path to Launch: A Step-by-Step Timeline</h3>
+                    <div class="flex flex-col md:flex-row justify-between items-center space-y-4 md:space-y-0 md:space-x-2">
+                        <div class="flowchart-step">1. Finalize Theme & Curriculum</div>
+                        <div class="flowchart-arrow hidden md:block">→</div>
+                        <div class="flowchart-step">2. Secure Venue & Set Budget</div>
+                        <div class="flowchart-arrow hidden md:block">→</div>
+                        <div class="flowchart-step">3. Launch Marketing & Open Registration</div>
+                        <div class="flowchart-arrow hidden md:block">→</div>
+                        <div class="flowchart-step">4. Hire & Train Staff</div>
+                        <div class="flowchart-arrow hidden md:block">→</div>
+                        <div class="flowchart-step">5. Camp Launch Day!</div>
+                    </div>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-8 items-center">
+                    <div class="bg-white rounded-lg shadow-lg p-6 h-full">
+                        <h3 class="text-xl font-bold text-center mb-4">Ideal Staffing Structure</h3>
+                        <p class="text-center text-sm text-gray-600 mb-4">A well-organized team is essential for a smooth-running camp. A clear hierarchy ensures everyone knows their role, from leadership to junior counselors.</p>
+                        <div class="w-full max-w-sm mx-auto flex flex-col text-center text-white font-bold">
+                            <div class="pyramid-level bg-coral w-full h-16 flex items-center justify-center p-4">Camp Director</div>
+                            <div class="pyramid-level bg-yellow w-10/12 mx-auto h-16 flex items-center justify-center p-4 -mt-4">Lead Instructors</div>
+                            <div class="pyramid-level bg-green w-11/12 mx-auto h-16 flex items-center justify-center p-4 -mt-4">Counselors</div>
+                            <div class="pyramid-level bg-blue w-full mx-auto h-16 flex items-center justify-center p-4 -mt-4">Counselors-in-Training</div>
+                        </div>
+                    </div>
+                    <div class="bg-white rounded-lg shadow-lg p-6 h-full flex flex-col justify-center">
+                        <h3 class="text-xl font-bold text-center mb-4">The Golden Ratio</h3>
+                        <div class="text-center">
+                            <p class="text-6xl font-black text-green">1 : 8</p>
+                            <p class="text-lg font-semibold mt-2">Staff to Camper Ratio</p>
+                            <p class="mt-4 text-md text-gray-600">For camps with children aged 6-8, maintaining a low staff-to-camper ratio is the most critical factor for ensuring safety and providing personalized attention.</p>
+                        </div>
+                    </div>
+                </div>
+            </section>
+
+            <section id="experience" class="mb-16">
+                <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-dark-blue border-b-4 border-blue inline-block pb-2">Stage 4: The Camper Experience</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-md text-gray-600">The heart of your camp is the experience you provide. Prioritizing safety and maintaining open lines of communication with parents are non-negotiable elements of a premium program.</p>
+                </div>
+                <div class="grid grid-cols-1 lg:grid-cols-5 gap-8">
+                     <div class="lg:col-span-3 bg-white rounded-lg shadow-lg p-6">
+                        <h3 class="text-xl font-bold text-center mb-4">Impact of Communication on Parent Satisfaction</h3>
+                        <p class="text-center text-sm text-gray-600 mb-4">Regular, proactive communication makes parents feel secure and involved. Even simple daily updates can dramatically boost satisfaction and trust.</p>
+                        <div class="chart-container">
+                            <canvas id="satisfactionChart"></canvas>
+                        </div>
+                    </div>
+                    <div class="lg:col-span-2 bg-white rounded-lg shadow-lg p-6 flex flex-col justify-center text-center">
+                        <h3 class="text-xl font-bold text-center mb-2">✨ AI-Powered Email Drafter</h3>
+                        <p class="text-center text-sm text-gray-600 mb-4">Save time and make a great first impression. Let AI draft a welcome email for parents.</p>
+                        <button id="generateEmailBtn" class="bg-blue hover:bg-sky-600 text-white font-bold py-3 px-6 rounded-md transition-colors w-full">Draft Welcome Email</button>
+                         <div id="emailResult" class="mt-4"></div>
+                    </div>
+                </div>
+            </section>
+            
+            <section id="success" class="mb-16">
+                 <div class="text-center mb-10">
+                    <h2 class="text-3xl font-bold text-dark-blue border-b-4 border-coral inline-block pb-2">Stage 5: Ensuring Long-Term Success</h2>
+                    <p class="mt-4 max-w-2xl mx-auto text-md text-gray-600">A great camp doesn't end on the last day. Success is measured by camper happiness, parent trust, and the desire for everyone to return next year.</p>
+                </div>
+                <div class="grid grid-cols-1 md:grid-cols-3 gap-8 items-center">
+                    <div class="md:col-span-2 bg-white rounded-lg shadow-lg p-6 h-full">
+                        <h3 class="text-xl font-bold text-center mb-4">Key Drivers of Parent Satisfaction</h3>
+                        <p class="text-center text-sm text-gray-600 mb-4">Parents value a holistic experience. While engaging activities are important, a sense of safety and quality staff are the highest-rated drivers of satisfaction.</p>
+                        <div class="chart-container">
+                            <canvas id="driversChart"></canvas>
+                        </div>
+                    </div>
+                     <div class="bg-white rounded-lg shadow-lg p-6 text-center h-full flex flex-col justify-center">
+                        <p class="text-lg text-gray-700">Achievable Camper Retention Rate</p>
+                        <p class="text-8xl font-black text-coral my-4">70%</p>
+                        <p class="text-md text-gray-600">By focusing on the key satisfaction drivers, academies can achieve high retention rates, ensuring a stable and profitable program year after year.</p>
+                    </div>
+                </div>
+            </section>
+        </main>
+
+        <footer class="text-center mt-12 pt-8 border-t border-gray-300">
+            <p class="text-gray-600">&copy; 2025 Academy Insights. All rights reserved.</p>
+             <p class="text-sm text-gray-400 mt-2">This infographic is for illustrative purposes, based on industry trends for summer camp programs. Gemini AI features provide suggestions and drafts.</p>
+        </footer>
+
+    </div>
+    
+    <!-- Modal for Email -->
+    <div id="emailModal" class="fixed inset-0 bg-gray-900 bg-opacity-75 flex items-center justify-center p-4 z-50 hidden">
+        <div class="bg-white rounded-lg shadow-2xl max-w-2xl w-full">
+            <div class="p-6">
+                <div class="flex justify-between items-center mb-4">
+                    <h3 class="text-xl font-bold text-dark-blue">AI-Generated Welcome Email</h3>
+                    <button id="closeModalBtn" class="text-gray-500 hover:text-gray-800 text-2xl">&times;</button>
+                </div>
+                <div id="modalSpinner" class="flex justify-center items-center h-48">
+                    <div class="spinner"></div>
+                </div>
+                <div id="modalContent" class="hidden">
+                    <div id="emailDraft" class="prose max-w-none bg-gray-100 p-4 rounded-md h-96 overflow-y-auto mb-4 border border-gray-200"></div>
+                    <button id="copyEmailBtn" class="bg-green hover:bg-emerald-500 text-white font-bold py-2 px-4 rounded-md transition-colors w-full">Copy to Clipboard</button>
+                    <p id="copyFeedback" class="text-center text-sm text-green mt-2 h-4"></p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+
+            const FONT_COLOR = '#073B4C';
+            const GRID_COLOR = '#D1D5DB';
+            const FONT_FAMILY = "'Inter', sans-serif";
+
+            Chart.defaults.font.family = FONT_FAMILY;
+            Chart.defaults.color = FONT_COLOR;
+
+            function wrapText(label) {
+                const maxLength = 16;
+                if (typeof label !== 'string' || label.length <= maxLength) {
+                    return label;
+                }
+                const words = label.split(' ');
+                const lines = [];
+                let currentLine = '';
+                words.forEach(word => {
+                    if ((currentLine + ' ' + word).trim().length > maxLength) {
+                        lines.push(currentLine.trim());
+                        currentLine = word;
+                    } else {
+                        currentLine = (currentLine + ' ' + word).trim();
+                    }
+                });
+                if (currentLine) {
+                    lines.push(currentLine.trim());
+                }
+                return lines;
+            }
+
+            const multiLineTooltipTitle = {
+                plugins: {
+                    tooltip: {
+                        callbacks: {
+                            title: function(tooltipItems) {
+                                const item = tooltipItems[0];
+                                let label = item.chart.data.labels[item.dataIndex];
+                                return Array.isArray(label) ? label.join(' ') : label;
+                            }
+                        }
+                    }
+                }
+            };
+            
+            function createThemesChart() {
+                const ctx = document.getElementById('themesChart');
+                if (!ctx) return;
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['STEM & Coding', 'Arts & Crafts', 'Sports & Fitness', 'Adventure & Outdoors', 'Performing Arts'].map(wrapText),
+                        datasets: [{
+                            label: 'Popularity Score',
+                            data: [95, 85, 82, 75, 68],
+                            backgroundColor: ['#FF6B6B', '#FFD166', '#06D6A0', '#118AB2', '#4D9DE0'],
+                            borderRadius: 6,
+                        }]
+                    },
+                    options: {
+                        ...multiLineTooltipTitle,
+                        maintainAspectRatio: false,
+                        indexAxis: 'y',
+                        scales: { x: { beginAtZero: true, grid: { color: GRID_COLOR } }, y: { grid: { display: false } } },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+
+            function createBudgetChart() {
+                const ctx = document.getElementById('budgetChart');
+                if (!ctx) return;
+                new Chart(ctx, {
+                    type: 'doughnut',
+                    data: {
+                        labels: ['Staff Salaries', 'Supplies & Equipment', 'Marketing', 'Venue & Utilities', 'Insurance & Misc.'].map(wrapText),
+                        datasets: [{
+                            data: [45, 20, 15, 10, 10],
+                            backgroundColor: ['#118AB2', '#06D6A0', '#FFD166', '#FF6B6B', '#073B4C'],
+                            borderColor: '#ffffff',
+                            borderWidth: 4,
+                        }]
+                    },
+                    options: { ...multiLineTooltipTitle, maintainAspectRatio: false, cutout: '60%', plugins: { legend: { position: 'bottom' } } }
+                });
+            }
+            
+             function createMarketingChart() {
+                const ctx = document.getElementById('marketingChart');
+                if (!ctx) return;
+                new Chart(ctx, {
+                    type: 'bar',
+                    data: {
+                        labels: ['Existing Client Emails', 'Local School Partnerships', 'Social Media Ads', 'Online Directories', 'Print Flyers'].map(wrapText),
+                        datasets: [{
+                            label: 'Conversion Rate (%)',
+                            data: [25, 20, 18, 12, 5],
+                            backgroundColor: ['#06D6A0', '#118AB2', '#FFD166', '#FF6B6B', '#073B4C'],
+                             borderRadius: 6,
+                        }]
+                    },
+                    options: {
+                        ...multiLineTooltipTitle,
+                        maintainAspectRatio: false,
+                        scales: { x: { grid: { color: GRID_COLOR }, title: { display: true, text: 'Sign-up Conversion Rate (%)'} }, y: { grid: { display: false } } },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+
+            function createSatisfactionChart() {
+                const ctx = document.getElementById('satisfactionChart');
+                if (!ctx) return;
+                new Chart(ctx, {
+                    type: 'line',
+                    data: {
+                        labels: ['None', 'Weekly', 'Bi-Daily', 'Daily Photos', 'Daily Updates + Photos'],
+                        datasets: [{
+                            label: 'Parent Satisfaction Score',
+                            data: [55, 70, 78, 88, 96],
+                            borderColor: '#118AB2',
+                            backgroundColor: 'rgba(17, 138, 178, 0.1)',
+                            fill: true, tension: 0.4, pointRadius: 5, pointBackgroundColor: '#118AB2',
+                        }]
+                    },
+                    options: {
+                        ...multiLineTooltipTitle,
+                        maintainAspectRatio: false,
+                        scales: { x: { grid: { display: false } }, y: { grid: { color: GRID_COLOR }, beginAtZero: false, min: 50, max: 100, title: { display: true, text: 'Satisfaction (out of 100)'} } },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+
+            function createDriversChart() {
+                const ctx = document.getElementById('driversChart');
+                if (!ctx) return;
+                new Chart(ctx, {
+                    type: 'radar',
+                    data: {
+                        labels: ['Qualified Staff', 'Camp Safety', 'Engaging Activities', 'Communication', 'Value for Money'].map(wrapText),
+                        datasets: [{
+                            label: 'Importance to Parents',
+                            data: [9.5, 9.2, 8.5, 8.8, 7.8],
+                            backgroundColor: 'rgba(255, 107, 107, 0.2)',
+                            borderColor: '#FF6B6B', pointBackgroundColor: '#FF6B6B', pointBorderColor: '#fff', pointHoverBackgroundColor: '#fff', pointHoverBorderColor: '#FF6B6B'
+                        }]
+                    },
+                    options: {
+                        ...multiLineTooltipTitle,
+                        maintainAspectRatio: false,
+                        scales: { r: { beginAtZero: true, max: 10, grid: { color: GRID_COLOR }, angleLines: { color: GRID_COLOR }, pointLabels: { font: { size: 12 } } } },
+                        plugins: { legend: { display: false } }
+                    }
+                });
+            }
+            
+            // --- Gemini API Integration ---
+
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
+
+            const generateActivitiesBtn = document.getElementById('generateActivitiesBtn');
+            const themeInput = document.getElementById('themeInput');
+            const activitiesResult = document.getElementById('activitiesResult');
+
+            generateActivitiesBtn.addEventListener('click', async () => {
+                const theme = themeInput.value;
+                if (!theme) {
+                    activitiesResult.innerHTML = `<p class="text-red-600 text-center">Please enter a theme first.</p>`;
+                    return;
+                }
+                
+                activitiesResult.innerHTML = `<div class="flex justify-center items-center"><div class="spinner"></div></div>`;
+                
+                const prompt = `Generate 5 creative and age-appropriate (ages 6-10) summer camp activity ideas for the theme: "${theme}".`;
+
+                const payload = {
+                    contents: [{ role: "user", parts: [{ text: prompt }] }],
+                    generationConfig: {
+                        responseMimeType: "application/json",
+                        responseSchema: {
+                            type: "OBJECT",
+                            properties: {
+                                activities: {
+                                    type: "ARRAY",
+                                    items: {
+                                        type: "OBJECT",
+                                        properties: {
+                                            activityName: { type: "STRING" },
+                                            description: { type: "STRING" }
+                                        },
+                                        required: ["activityName", "description"]
+                                    }
+                                }
+                            }
+                        }
+                    }
+                };
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    
+                    const result = await response.json();
+
+                    if (result.candidates && result.candidates.length > 0 && result.candidates[0].content && result.candidates[0].content.parts.length > 0) {
+                        const jsonText = result.candidates[0].content.parts[0].text;
+                        const data = JSON.parse(jsonText);
+                        
+                        let html = '<ul class="space-y-4">';
+                        data.activities.forEach(activity => {
+                            html += `
+                                <li class="bg-gray-50 p-4 rounded-lg border border-gray-200">
+                                    <h4 class="font-bold text-lg text-coral">${activity.activityName}</h4>
+                                    <p class="text-gray-600">${activity.description}</p>
+                                </li>
+                            `;
+                        });
+                        html += '</ul>';
+                        activitiesResult.innerHTML = html;
+                    } else {
+                        throw new Error("Invalid response structure from API.");
+                    }
+                } catch (error) {
+                    console.error("Error generating activities:", error);
+                    activitiesResult.innerHTML = `<p class="text-red-600 text-center">Sorry, we couldn't generate ideas at this time. Please try again later.</p>`;
+                }
+            });
+            
+            // Email Generator Logic
+            const generateEmailBtn = document.getElementById('generateEmailBtn');
+            const emailModal = document.getElementById('emailModal');
+            const closeModalBtn = document.getElementById('closeModalBtn');
+            const modalSpinner = document.getElementById('modalSpinner');
+            const modalContent = document.getElementById('modalContent');
+            const emailDraft = document.getElementById('emailDraft');
+            const copyEmailBtn = document.getElementById('copyEmailBtn');
+            const copyFeedback = document.getElementById('copyFeedback');
+
+            generateEmailBtn.addEventListener('click', async () => {
+                emailModal.classList.remove('hidden');
+                modalSpinner.style.display = 'flex';
+                modalContent.style.display = 'none';
+
+                const prompt = `Draft a friendly, professional, and welcoming email to parents for an upcoming summer camp. Include placeholders like [Camp Name], [Child's Name], [Start Date], [End Date], [Camp Director Name]. The tone should be enthusiastic and reassuring. Structure it with a clear subject line, a warm greeting, key details about the first day, a mention of the fun activities planned, and a closing that invites questions.`;
+                const payload = { contents: [{ role: "user", parts: [{ text: prompt }] }] };
+
+                try {
+                    const response = await fetch(apiUrl, {
+                        method: 'POST',
+                        headers: { 'Content-Type': 'application/json' },
+                        body: JSON.stringify(payload)
+                    });
+                    if (!response.ok) throw new Error(`HTTP error! status: ${response.status}`);
+                    const result = await response.json();
+                    if (result.candidates && result.candidates.length > 0 && result.candidates[0].content.parts[0].text) {
+                        const generatedText = result.candidates[0].content.parts[0].text.replace(/\n/g, '<br>');
+                        emailDraft.innerHTML = generatedText;
+                    } else {
+                        throw new Error("Invalid response structure from API.");
+                    }
+                } catch (error) {
+                    console.error("Error generating email:", error);
+                    emailDraft.innerHTML = `<p class="text-red-600">Failed to generate email. Please try again.</p>`;
+                } finally {
+                     modalSpinner.style.display = 'none';
+                     modalContent.style.display = 'block';
+                     copyFeedback.textContent = '';
+                }
+            });
+
+            closeModalBtn.addEventListener('click', () => {
+                emailModal.classList.add('hidden');
+            });
+
+            copyEmailBtn.addEventListener('click', () => {
+                const textToCopy = emailDraft.innerText;
+                const textArea = document.createElement('textarea');
+                textArea.value = textToCopy;
+                document.body.appendChild(textArea);
+                textArea.select();
+                try {
+                    document.execCommand('copy');
+                    copyFeedback.textContent = 'Copied to clipboard!';
+                    setTimeout(() => copyFeedback.textContent = '', 2000);
+                } catch (err) {
+                    console.error('Failed to copy text: ', err);
+                    copyFeedback.textContent = 'Failed to copy!';
+                }
+                document.body.removeChild(textArea);
+            });
+
+
+            createThemesChart();
+            createBudgetChart();
+            createMarketingChart();
+            createSatisfactionChart();
+            createDriversChart();
+        });
+    </script>
+</body>
+</html>
