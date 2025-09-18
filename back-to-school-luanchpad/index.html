@@ -48,7 +48,7 @@
             transition: max-height 0.5s ease-in-out;
         }
         .section-content.active {
-            max-height: 1000px; /* A value larger than the max possible height */
+            max-height: 4000px; /* Increased for content visibility */
         }
         .plus-icon {
             transition: transform 0.3s ease;
@@ -74,7 +74,6 @@
             padding: 1rem;
             border-radius: 0.75rem;
             margin-top: 1rem;
-            height: 220px; /* Uniform height for generator boxes */
             display: flex;
             flex-direction: column;
         }
@@ -120,27 +119,42 @@
             <div class="section-content" id="section2">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
                     <!-- Strategy 1 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col items-center justify-between min-h-[250px]">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col items-center justify-between min-h-[400px]">
                         <span class="text-4xl mb-2 block">💡</span>
                         <h3 class="text-xl font-semibold mb-2">Offer unique programs</h3>
-                        <p class="text-sm text-gray-600 flex-grow">Differentiate with niche activities like coding, theatre, and acrobatics.</p>
+                        <p class="text-sm text-gray-600 mb-4">Differentiate with niche activities like coding, theatre, and acrobatics.</p>
+                        <div class="generator-box text-left flex flex-col w-full">
+                            <h4 class="font-bold text-base mb-2">More Program Ideas</h4>
+                            <ul class="list-disc list-inside text-xs text-gray-600">
+                                <li>Football: Tactical training & game analysis</li>
+                                <li>Tennis: Match strategy & mental game sessions</li>
+                                <li>Swimming: Advanced water safety & rescue</li>
+                                <li>Performing Arts: Improv comedy & short-form theatre</li>
+                                <li>Tuition: Interactive coding for all ages</li>
+                            </ul>
+                        </div>
                     </div>
                     <!-- Strategy 2 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col items-center justify-between min-h-[250px]">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col items-center justify-between min-h-[400px]">
                         <span class="text-4xl mb-2 block">🤝</span>
                         <h3 class="text-xl font-semibold mb-2">Run trial classes</h3>
-                        <p class="text-sm text-gray-600 flex-grow">Run free or low-cost trial sessions. Parents love low-risk options.</p>
+                        <p class="text-sm text-gray-600 mb-4">
+                            Academies that consistently run trial classes report significantly higher enrollment conversion rates. Parents love low-risk options.
+                        </p>
+                        <div class="bg-green-100 p-4 rounded-lg mt-4 w-full">
+                            <p class="text-lg font-semibold text-green-800">✅ Providers who offer trial classes see ~30% of trial users convert to paid enrolments.</p>
+                        </div>
                     </div>
                     
                     <!-- Strategy 3: Engage on WhatsApp -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col justify-between min-h-[250px]">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col justify-between min-h-[400px]">
                         <span class="text-4xl mb-2 block">💬</span>
                         <h3 class="text-xl font-semibold mb-2">Engage on WhatsApp</h3>
-                        <p class="text-sm text-gray-600 mb-4 flex-grow">Share an FAQ broadcast answering top questions (schedule, fees, age groups).</p>
+                        <p class="text-sm text-gray-600 mb-4">Share an FAQ broadcast answering top questions (schedule, fees, age groups).</p>
                         <!-- WhatsApp Generator -->
-                        <div class="generator-box text-left flex flex-col">
+                        <div class="generator-box text-left flex flex-col w-full">
                             <h4 class="font-bold text-base mb-2">WhatsApp Message Generator</h4>
-                            <p class="text-xs text-gray-600 mb-2 flex-grow">Generate a quick WhatsApp broadcast message to answer parents' common questions.</p>
+                            <p class="text-xs text-gray-600 mb-2">Generate a quick WhatsApp broadcast message to answer parents' common questions.</p>
                             <div class="flex flex-col gap-2">
                                 <input type="text" id="whatsappTopicInput" placeholder="E.g., Chess Club questions" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow text-sm">
                                 <button onclick="generateWhatsAppContent()" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors text-sm">
@@ -155,14 +169,14 @@
                     </div>
                     
                     <!-- Strategy 4: Show your value -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col justify-between min-h-[250px]">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col justify-between min-h-[400px]">
                         <span class="text-4xl mb-2 block">📢</span>
                         <h3 class="text-xl font-semibold mb-2">Show your value</h3>
-                        <p class="text-sm text-gray-600 mb-4 flex-grow">Post testimonials, success stories, and engaging content on social media.</p>
+                        <p class="text-sm text-gray-600 mb-4">Post testimonials, success stories, and engaging content on social media.</p>
                         <!-- Social Media Generator -->
-                        <div class="generator-box text-left flex flex-col">
+                        <div class="generator-box text-left flex flex-col w-full">
                             <h4 class="font-bold text-base mb-2">Social Media Post Generator</h4>
-                            <p class="text-xs text-gray-600 mb-2 flex-grow">Get an instant social media post idea to highlight your academy's value.</p>
+                            <p class="text-xs text-gray-600 mb-2">Get an instant social media post idea to highlight your academy's value.</p>
                             <div class="flex flex-col gap-2">
                                 <input type="text" id="socialMediaTopicInput" placeholder="E.g., Success story about a student" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow text-sm">
                                 <button onclick="generateSocialMediaContent()" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors text-sm">
@@ -176,16 +190,45 @@
                         </div>
                     </div>
                     <!-- Strategy 5 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col items-center justify-between min-h-[250px]">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col items-center justify-between min-h-[400px]">
                         <span class="text-4xl mb-2 block">🎁</span>
                         <h3 class="text-xl font-semibold mb-2">Create smart offers</h3>
-                        <p class="text-sm text-gray-600 flex-grow">Bundle activities, offer sibling discounts, or add bonus sessions.</p>
+                        <p class="text-sm text-gray-600 mb-4">Bundle activities, offer sibling discounts, or add bonus sessions.</p>
+                        <div class="generator-box text-left flex flex-col w-full">
+                            <h4 class="font-bold text-base mb-2">Offer Examples</h4>
+                            <ul class="list-disc list-inside text-xs text-gray-600">
+                                <li>Sibling Discount: 15% off for a second child.</li>
+                                <li>Bundle Package: Enroll in Soccer + Chess and get 10% off.</li>
+                                <li>Early Bird: 20% off for signing up before the new term.</li>
+                            </ul>
+                            <div class="flex flex-col gap-2 mt-4">
+                                <input type="text" id="offerTopicInput" placeholder="E.g., STEM, Art & Coding" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow text-sm">
+                                <button onclick="generateOfferContent()" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors text-sm">
+                                    Generate
+                                </button>
+                            </div>
+                            <div id="offerLoadingIndicator" class="hidden mt-2 flex justify-center items-center">
+                                <div class="loader w-6 h-6"></div>
+                            </div>
+                            <div id="offerContentOutput" class="mt-2 p-2 bg-gray-100 rounded-lg text-gray-700 whitespace-pre-wrap text-xs overflow-auto"></div>
+                        </div>
                     </div>
                     <!-- Strategy 6 -->
-                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col items-center justify-between min-h-[250px]">
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col items-center justify-between min-h-[400px]">
                         <span class="text-4xl mb-2 block">🤖</span>
                         <h3 class="text-xl font-semibold mb-2">Simplify with tech</h3>
-                        <p class="text-sm text-gray-600 flex-grow">Automate admin tasks like scheduling, attendance, payments, grading & more. <a href="https://www.classcardapp.com/" target="_blank" class="text-blue-600 hover:underline font-bold">Learn how Classcard helps you grow!</a></p>
+                        <p class="text-sm text-gray-600 mb-4">Automate your administrative tasks with Classcard.</p>
+                        <div class="bg-gray-100 p-4 rounded-lg mt-4 w-full text-left">
+                            <ul class="list-disc list-inside text-xs text-gray-800 space-y-2">
+                                <li>Student registration & enrolment</li>
+                                <li>Class scheduling & online booking</li>
+                                <li>Automated payments & billing</li>
+                                <li>Attendance tracking & grading</li>
+                                <li>Staff management & payroll</li>
+                                <li>Performance reporting</li>
+                            </ul>
+                        </div>
+                        <p class="text-sm text-gray-600 mt-2"><a href="https://www.classcardapp.com/" target="_blank" class="text-blue-600 hover:underline font-bold">Learn how Classcard helps you grow!</a></p>
                     </div>
                 </div>
             </div>
@@ -210,7 +253,7 @@
             outputDiv.textContent = '';
             loadingIndicator.classList.remove('hidden');
             const userQuery = topic;
-            const apiKey = "";
+            const apiKey = "AIzaSyBzb1YW4oltJtwwNjXR4xl9eoWaPUaV_9o";
             const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
             const payload = {
                 contents: [{ parts: [{ text: userQuery }] }],
@@ -247,6 +290,10 @@
         function generateSocialMediaContent() {
             const systemPrompt = "Act as a professional social media content creator for an after-school activity academy. Write a single, engaging social media post (e.g., for Instagram or Facebook) about the given topic. The tone should be exciting and inviting to parents. Include relevant emojis and a strong call-to-action to enroll or learn more.";
             generateContent('socialMediaTopicInput', 'socialMediaContentOutput', 'socialMediaLoadingIndicator', systemPrompt);
+        }
+        function generateOfferContent() {
+            const systemPrompt = "Act as a marketing expert for an after-school academy. Suggest a compelling and unique bundle offer based on the provided activities. The tone should be persuasive and highlight the value for parents. Provide a clear offer and a snappy name for the bundle.";
+            generateContent('offerTopicInput', 'offerContentOutput', 'offerLoadingIndicator', systemPrompt);
         }
     </script>
 </body>
