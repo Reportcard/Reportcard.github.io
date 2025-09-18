@@ -1,0 +1,253 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Classcard Back-to-School Campaign</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+            background-color: #f7f9fc;
+            color: #333;
+            line-height: 1.6;
+        }
+        .container {
+            max-width: 960px;
+            margin: auto;
+            padding: 2rem;
+        }
+        .card {
+            background-color: white;
+            padding: 2.5rem;
+            border-radius: 1.5rem;
+            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease, box-shadow 0.3s ease;
+            position: relative;
+            overflow: hidden;
+            margin-bottom: 2rem;
+        }
+        .card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 15px 35px rgba(0, 0, 0, 0.1);
+        }
+        .section-header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            cursor: pointer;
+            padding: 1.5rem 0;
+            border-bottom: 1px solid #e2e8f0;
+        }
+        .section-content {
+            max-height: 0;
+            overflow: hidden;
+            transition: max-height 0.5s ease-in-out;
+        }
+        .section-content.active {
+            max-height: 1000px; /* A value larger than the max possible height */
+        }
+        .plus-icon {
+            transition: transform 0.3s ease;
+        }
+        .plus-icon.active {
+            transform: rotate(45deg);
+        }
+        .loader {
+            border: 4px solid #f3f3f3;
+            border-top: 4px solid #3498db;
+            border-radius: 50%;
+            width: 30px;
+            height: 30px;
+            animation: spin 1s linear infinite;
+        }
+        @keyframes spin {
+            0% { transform: rotate(0deg); }
+            100% { transform: rotate(360deg); }
+        }
+        .generator-box {
+            background-color: #f0f4f8;
+            border: 1px solid #e2e8f0;
+            padding: 1rem;
+            border-radius: 0.75rem;
+            margin-top: 1rem;
+            height: 220px; /* Uniform height for generator boxes */
+            display: flex;
+            flex-direction: column;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <!-- Main Headline Section -->
+        <div class="card text-center my-8 bg-gradient-to-r from-blue-500 to-indigo-500 text-white shadow-xl">
+            <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight">
+                Did you know: <span class="block mt-2">📊 “73% of UAE Parents Enroll Kids in 2+ Activities Each Term”</span>
+            </h1>
+            <p class="mt-4 text-xl sm:text-2xl font-semibold">Is your academy ready to stand out?</p>
+        </div>
+        <!-- Section 1: What this means for academies -->
+        <div class="card p-6">
+            <div class="section-header" onclick="toggleSection('section1')">
+                <h2 class="text-2xl font-bold text-gray-800">What this means for academies</h2>
+                <div class="plus-icon text-3xl font-bold text-gray-600" id="icon-section1">+</div>
+            </div>
+            <div class="section-content" id="section1">
+                <p class="text-lg text-gray-600 mt-4 mb-4">
+                    This reveals a significant demand for after-school activities. Parents are seeking a portfolio of engaging options for their children.
+                </p>
+                <div class="grid grid-cols-1 md:grid-cols-2 gap-6 mt-4">
+                    <div class="p-5 border border-gray-200 rounded-lg flex items-center bg-gray-50">
+                        <span class="text-3xl mr-4">📈</span>
+                        <p class="text-md">Golden opportunity to grow and expand your offerings.</p>
+                    </div>
+                    <div class="p-5 border border-gray-200 rounded-lg flex items-center bg-gray-50">
+                        <span class="text-3xl mr-4">💡</span>
+                        <p class="text-md">Capture a larger market share with flexible packages and options.</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- Section 2: How to Boost Enrollments & Stand Out -->
+        <div class="card p-6">
+            <div class="section-header" onclick="toggleSection('section2')">
+                <h2 class="text-2xl font-bold text-gray-800">How to boost enrollments & stand out</h2>
+                <div class="plus-icon text-3xl font-bold text-gray-600" id="icon-section2">+</div>
+            </div>
+            <div class="section-content" id="section2">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-6 mt-4">
+                    <!-- Strategy 1 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col items-center justify-between min-h-[250px]">
+                        <span class="text-4xl mb-2 block">💡</span>
+                        <h3 class="text-xl font-semibold mb-2">Offer unique programs</h3>
+                        <p class="text-sm text-gray-600 flex-grow">Differentiate with niche activities like coding, theatre, and acrobatics.</p>
+                    </div>
+                    <!-- Strategy 2 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col items-center justify-between min-h-[250px]">
+                        <span class="text-4xl mb-2 block">🤝</span>
+                        <h3 class="text-xl font-semibold mb-2">Run trial classes</h3>
+                        <p class="text-sm text-gray-600 flex-grow">Run free or low-cost trial sessions. Parents love low-risk options.</p>
+                    </div>
+                    
+                    <!-- Strategy 3: Engage on WhatsApp -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col justify-between min-h-[250px]">
+                        <span class="text-4xl mb-2 block">💬</span>
+                        <h3 class="text-xl font-semibold mb-2">Engage on WhatsApp</h3>
+                        <p class="text-sm text-gray-600 mb-4 flex-grow">Share an FAQ broadcast answering top questions (schedule, fees, age groups).</p>
+                        <!-- WhatsApp Generator -->
+                        <div class="generator-box text-left flex flex-col">
+                            <h4 class="font-bold text-base mb-2">WhatsApp Message Generator</h4>
+                            <p class="text-xs text-gray-600 mb-2 flex-grow">Generate a quick WhatsApp broadcast message to answer parents' common questions.</p>
+                            <div class="flex flex-col gap-2">
+                                <input type="text" id="whatsappTopicInput" placeholder="E.g., Chess Club questions" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow text-sm">
+                                <button onclick="generateWhatsAppContent()" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors text-sm">
+                                    Generate
+                                </button>
+                            </div>
+                            <div id="whatsappLoadingIndicator" class="hidden mt-2 flex justify-center items-center">
+                                <div class="loader w-6 h-6"></div>
+                            </div>
+                            <div id="whatsappContentOutput" class="mt-2 p-2 bg-gray-100 rounded-lg text-gray-700 whitespace-pre-wrap text-xs overflow-auto"></div>
+                        </div>
+                    </div>
+                    
+                    <!-- Strategy 4: Show your value -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col justify-between min-h-[250px]">
+                        <span class="text-4xl mb-2 block">📢</span>
+                        <h3 class="text-xl font-semibold mb-2">Show your value</h3>
+                        <p class="text-sm text-gray-600 mb-4 flex-grow">Post testimonials, success stories, and engaging content on social media.</p>
+                        <!-- Social Media Generator -->
+                        <div class="generator-box text-left flex flex-col">
+                            <h4 class="font-bold text-base mb-2">Social Media Post Generator</h4>
+                            <p class="text-xs text-gray-600 mb-2 flex-grow">Get an instant social media post idea to highlight your academy's value.</p>
+                            <div class="flex flex-col gap-2">
+                                <input type="text" id="socialMediaTopicInput" placeholder="E.g., Success story about a student" class="w-full p-2 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 transition-shadow text-sm">
+                                <button onclick="generateSocialMediaContent()" class="bg-blue-600 text-white font-bold py-2 px-4 rounded-lg shadow-md hover:bg-blue-700 transition-colors text-sm">
+                                    Generate
+                                </button>
+                            </div>
+                            <div id="socialMediaLoadingIndicator" class="hidden mt-2 flex justify-center items-center">
+                                <div class="loader w-6 h-6"></div>
+                            </div>
+                            <div id="socialMediaContentOutput" class="mt-2 p-2 bg-gray-100 rounded-lg text-gray-700 whitespace-pre-wrap text-xs overflow-auto"></div>
+                        </div>
+                    </div>
+                    <!-- Strategy 5 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col items-center justify-between min-h-[250px]">
+                        <span class="text-4xl mb-2 block">🎁</span>
+                        <h3 class="text-xl font-semibold mb-2">Create smart offers</h3>
+                        <p class="text-sm text-gray-600 flex-grow">Bundle activities, offer sibling discounts, or add bonus sessions.</p>
+                    </div>
+                    <!-- Strategy 6 -->
+                    <div class="bg-gray-50 p-6 rounded-lg shadow-sm text-center flex flex-col items-center justify-between min-h-[250px]">
+                        <span class="text-4xl mb-2 block">🤖</span>
+                        <h3 class="text-xl font-semibold mb-2">Simplify with tech</h3>
+                        <p class="text-sm text-gray-600 flex-grow">Automate admin tasks like scheduling, attendance, payments, grading & more. <a href="https://www.classcardapp.com/" target="_blank" class="text-blue-600 hover:underline font-bold">Learn how Classcard helps you grow!</a></p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <script>
+        function toggleSection(id) {
+            const content = document.getElementById(id);
+            const icon = document.getElementById('icon-' + id);
+            
+            content.classList.toggle('active');
+            icon.classList.toggle('active');
+        }
+        async function generateContent(topicInputId, outputDivId, loadingIndicatorId, systemPrompt) {
+            const topic = document.getElementById(topicInputId).value;
+            const outputDiv = document.getElementById(outputDivId);
+            const loadingIndicator = document.getElementById(loadingIndicatorId);
+            if (!topic) {
+                outputDiv.textContent = "Please enter a topic to generate content.";
+                return;
+            }
+            outputDiv.textContent = '';
+            loadingIndicator.classList.remove('hidden');
+            const userQuery = topic;
+            const apiKey = "";
+            const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.5-flash-preview-05-20:generateContent?key=${apiKey}`;
+            const payload = {
+                contents: [{ parts: [{ text: userQuery }] }],
+                tools: [{ "google_search": {} }],
+                systemInstruction: {
+                    parts: [{ text: systemPrompt }]
+                },
+            };
+            try {
+                const response = await fetch(apiUrl, {
+                    method: 'POST',
+                    headers: { 'Content-Type': 'application/json' },
+                    body: JSON.stringify(payload)
+                });
+                if (!response.ok) {
+                    throw new Error(`HTTP error! status: ${response.status}`);
+                }
+                
+                const result = await response.json();
+                const candidate = result.candidates?.[0];
+                let generatedText = candidate?.content?.parts?.[0]?.text || "Failed to generate content. Please try again.";
+                outputDiv.textContent = generatedText;
+            } catch (error) {
+                console.error('API call failed:', error);
+                outputDiv.textContent = "An error occurred while generating the content. Please try again.";
+            } finally {
+                loadingIndicator.classList.add('hidden');
+            }
+        }
+        function generateWhatsAppContent() {
+            const systemPrompt = "Act as a professional social media content creator for an after-school activity academy. Write a concise and friendly WhatsApp broadcast message answering common parent questions about the given topic. The tone should be helpful and professional. Include emojis to make it engaging and a clear call-to-action.";
+            generateContent('whatsappTopicInput', 'whatsappContentOutput', 'whatsappLoadingIndicator', systemPrompt);
+        }
+        function generateSocialMediaContent() {
+            const systemPrompt = "Act as a professional social media content creator for an after-school activity academy. Write a single, engaging social media post (e.g., for Instagram or Facebook) about the given topic. The tone should be exciting and inviting to parents. Include relevant emojis and a strong call-to-action to enroll or learn more.";
+            generateContent('socialMediaTopicInput', 'socialMediaContentOutput', 'socialMediaLoadingIndicator', systemPrompt);
+        }
+    </script>
+</body>
+</html>
