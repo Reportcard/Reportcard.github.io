@@ -1,0 +1,278 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Academy Camp Strategic Flow</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Inter', sans-serif;
+        }
+        .chart-container {
+            position: relative;
+            width: 100%;
+            max-width: 400px;
+            margin-left: auto;
+            margin-right: auto;
+            height: 300px;
+            max-height: 350px;
+        }
+        @media (min-width: 768px) {
+            .chart-container {
+                height: 350px;
+            }
+        }
+    </style>
+</head>
+<body class="bg-gray-100 text-gray-800">
+
+    <div class="container mx-auto p-4 md:p-8">
+
+        <header class="text-center mb-12">
+            <h1 class="text-4xl md:text-5xl font-bold text-gray-900">Academy Camp Strategic Flow</h1>
+            <p class="text-lg md:text-xl text-gray-600 mt-2">A Visual Blueprint for Maximizing Enrollment & Retention</p>
+        </header>
+
+        <main class="space-y-12">
+
+            <section id="phase1" class="bg-white rounded-xl shadow-lg p-6 md:p-8 transition-all duration-300 hover:shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-blue-600 mb-2">🎯 PHASE 1: The Enrollment Engine</h2>
+                        <p class="text-gray-600 mb-6">The goal is to secure maximum revenue and prepare logistics with a structured approach to incentives, staffing, and marketing before the camp even begins.</p>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start"><span class="text-2xl mr-3">💰</span><div><strong class="font-semibold">Tiered Incentives:</strong> Offer early-bird rates and "Pro-Intensive" upgrades to boost revenue per camper.</div></li>
+                            <li class="flex items-start"><span class="text-2xl mr-3">👥</span><div><strong class="font-semibold">Staffing Lock:</strong> Finalize coach-to-camper ratios (e.g., 1:8) to guarantee quality instruction.</div></li>
+                            <li class="flex items-start"><span class="text-2xl mr-3">📣</span><div><strong class="font-semibold">Hype Builder:</strong> Release "Meet the Coaches" videos to generate excitement and build trust.</div></li>
+                        </ul>
+                    </div>
+                    <div class="w-full">
+                         <div class="chart-container">
+                            <canvas id="enrollmentChart"></canvas>
+                        </div>
+                        <p class="text-center text-sm text-gray-500 mt-2">Projected enrollment sources from a tiered strategy.</p>
+                    </div>
+                </div>
+            </section>
+
+            <section id="phase2" class="bg-white rounded-xl shadow-lg p-6 md:p-8 transition-all duration-300 hover:shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div class="order-2 lg:order-1 w-full">
+                        <div class="chart-container">
+                            <canvas id="engagementChart"></canvas>
+                        </div>
+                        <p class="text-center text-sm text-gray-500 mt-2">Daily updates consistently boost parent engagement scores.</p>
+                    </div>
+                    <div class="order-1 lg:order-2">
+                        <h2 class="text-3xl font-bold text-green-600 mb-2">✨ PHASE 2: The Immersion Core</h2>
+                        <p class="text-gray-600 mb-6">Focus on delivering premium value and creating tangible "retention artifacts" that demonstrate progress and justify the investment to parents.</p>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start"><span class="text-2xl mr-3">📸</span><div><strong class="font-semibold">Daily Parent Value:</strong> Send a 6 PM photo/fact update to confirm daily value and maintain engagement.</div></li>
+                            <li class="flex items-start"><span class="text-2xl mr-3">📹</span><div><strong class="font-semibold">Performance Artifact:</strong> Capture a 15-second video clip of each camper's best moment as proof of progress.</div></li>
+                            <li class="flex items-start"><span class="text-2xl mr-3">🎁</span><div><strong class="font-semibold">The Growth Report:</strong> Compile a personalized report with 3 strengths and 3 growth areas for each child.</div></li>
+                        </ul>
+                    </div>
+                </div>
+            </section>
+
+            <section id="phase3" class="bg-white rounded-xl shadow-lg p-6 md:p-8 transition-all duration-300 hover:shadow-2xl">
+                <div class="grid grid-cols-1 lg:grid-cols-2 gap-8 items-center">
+                    <div>
+                        <h2 class="text-3xl font-bold text-red-600 mb-2">🔄 PHASE 3: The Retention Loop</h2>
+                        <p class="text-gray-600 mb-6">Strategically convert satisfied campers into full-time academy students by creating a seamless and compelling transition path after the camp concludes.</p>
+                        <ul class="space-y-4 text-lg">
+                            <li class="flex items-start"><span class="text-2xl mr-3">📧</span><div><strong class="font-semibold">Report Delivery:</strong> Email the Growth Report 3-5 days post-camp, when parents are ready to consider next steps.</div></li>
+                            <li class="flex items-start"><span class="text-2xl mr-3">🏷️</span><div><strong class="font-semibold">Continuity Offer:</strong> Include a time-limited discount for year-round programs in the report email.</div></li>
+                            <li class="flex items-start"><span class="text-2xl mr-3">📞</span><div><strong class="font-semibold">High-Value Follow-up:</strong> Personally call top prospects to discuss their growth areas and your academy's solution.</div></li>
+                        </ul>
+                    </div>
+                    <div class="w-full">
+                        <div class="chart-container">
+                            <canvas id="retentionChart"></canvas>
+                        </div>
+                         <p class="text-center text-sm text-gray-500 mt-2">Visualizing the post-camp conversion funnel.</p>
+                    </div>
+                </div>
+            </section>
+        
+        </main>
+
+        <footer class="text-center mt-12 py-6 border-t border-gray-300">
+            <p class="text-gray-600">Implement this strategy for your most successful camp season yet.</p>
+        </footer>
+
+    </div>
+
+    <script>
+        const wrapLabel = (label) => {
+            const maxLength = 16;
+            if (typeof label !== 'string' || label.length <= maxLength) {
+                return label;
+            }
+            const words = label.split(' ');
+            const lines = [];
+            let currentLine = '';
+            for (const word of words) {
+                if ((currentLine + word).length > maxLength) {
+                    lines.push(currentLine.trim());
+                    currentLine = '';
+                }
+                currentLine += word + ' ';
+            }
+            lines.push(currentLine.trim());
+            return lines;
+        };
+
+        const tooltipTitleCallback = (tooltipItems) => {
+            const item = tooltipItems[0];
+            let label = item.chart.data.labels[item.dataIndex];
+            if (Array.isArray(label)) {
+                return label.join(' ');
+            }
+            return label;
+        };
+        
+        const sharedChartOptions = {
+            responsive: true,
+            maintainAspectRatio: false,
+            plugins: {
+                legend: {
+                    position: 'bottom',
+                    labels: {
+                        font: {
+                            size: 14,
+                            family: 'Inter'
+                        }
+                    }
+                },
+                tooltip: {
+                    callbacks: {
+                        title: tooltipTitleCallback
+                    },
+                    bodyFont: {
+                        size: 14,
+                        family: 'Inter'
+                    },
+                    titleFont: {
+                        size: 16,
+                        family: 'Inter'
+                    }
+                }
+            }
+        };
+
+        const energeticPalette = {
+            red: '#FF4136',
+            blue: '#007BFF',
+            green: '#2ECC40',
+            yellow: '#FFDC00',
+            magenta: '#F012BE'
+        };
+
+        new Chart(document.getElementById('enrollmentChart'), {
+            type: 'doughnut',
+            data: {
+                labels: ['Early-Bird Discount', 'Pro-Intensive Upgrade', 'Standard Enrollment'],
+                datasets: [{
+                    label: 'Enrollment Sources',
+                    data: [45, 20, 35],
+                    backgroundColor: [energeticPalette.blue, energeticPalette.green, energeticPalette.yellow],
+                    borderColor: '#FFFFFF',
+                    borderWidth: 4,
+                    hoverOffset: 8
+                }]
+            },
+            options: { ...sharedChartOptions }
+        });
+
+        new Chart(document.getElementById('engagementChart'), {
+            type: 'line',
+            data: {
+                labels: ['Day 1', 'Day 2', 'Day 3', 'Day 4', 'Day 5'],
+                datasets: [{
+                    label: 'Parent Engagement Score',
+                    data: [65, 70, 78, 85, 92],
+                    fill: true,
+                    backgroundColor: 'rgba(0, 123, 255, 0.2)',
+                    borderColor: energeticPalette.blue,
+                    tension: 0.4,
+                    pointBackgroundColor: energeticPalette.blue,
+                    pointRadius: 5,
+                    pointHoverRadius: 7
+                }]
+            },
+            options: { 
+                ...sharedChartOptions,
+                scales: {
+                    y: {
+                        beginAtZero: false,
+                        grid: {
+                            color: '#e0e0e0'
+                        },
+                        ticks: {
+                             font: { size: 12, family: 'Inter' }
+                        }
+                    },
+                    x: {
+                        grid: {
+                            display: false
+                        },
+                        ticks: {
+                             font: { size: 12, family: 'Inter' }
+                        }
+                    }
+                }
+             }
+        });
+
+        new Chart(document.getElementById('retentionChart'), {
+            type: 'bar',
+            data: {
+                labels: ['Total Campers', 'Reports Delivered', wrapLabel('Continuity Offer Opened'), wrapLabel('Converted to Year-Round')],
+                datasets: [{
+                    label: 'Conversion Rate',
+                    data: [100, 98, 75, 30],
+                    backgroundColor: [energeticPalette.yellow, energeticPalette.green, energeticPalette.blue, energeticPalette.red],
+                    borderColor: [energeticPalette.yellow, energeticPalette.green, energeticPalette.blue, energeticPalette.red],
+                    borderWidth: 1,
+                    borderRadius: 5
+                }]
+            },
+            options: {
+                ...sharedChartOptions,
+                indexAxis: 'y',
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    x: {
+                        beginAtZero: true,
+                        grid: {
+                            color: '#e0e0e0'
+                        },
+                        ticks: {
+                            font: { size: 12, family: 'Inter' }
+                        }
+                    },
+                     y: {
+                        grid: {
+                            display: false
+                        },
+                         ticks: {
+                             font: { size: 12, family: 'Inter' }
+                         }
+                     }
+                }
+            }
+        });
+
+    </script>
+</body>
+</html>
